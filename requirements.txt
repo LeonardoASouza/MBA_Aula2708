@@ -1,0 +1,4 @@
+astronomer-cosmos==1.15.1
+apache-airflow-providers-snowflake
+pandas
+snowflake-connector-python[pandas]

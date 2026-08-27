@@ -1,0 +1,17 @@
+# Plano C (Astro CLI local): copie para airflow_settings.yaml, preencha e rode `astro dev start`.
+# O CLI cria a Connection automaticamente. airflow_settings.yaml está no .gitignore — nunca faça commit dele.
+airflow:
+  connections:
+    - conn_id: snowflake_default
+      conn_type: snowflake
+      conn_login: SEU_LOGIN
+      conn_password: SUA_SENHA          # vazio se usar chave (ver setup/01_snowflake_service_user.sql)
+      conn_schema: PUBLIC
+      conn_extra:
+        account: SEU-ORG-SUA-CONTA
+        warehouse: COMPUTE_WH
+        database: OLIST_LAB
+        role: ACCOUNTADMIN
+        # private_key_content: "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----"
+  pools: []
+  variables: []

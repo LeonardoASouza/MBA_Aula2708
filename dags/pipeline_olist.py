@@ -2,7 +2,7 @@
 pipeline_olist_completo — Aula 4 (Airflow 3.2 no Astro)
 FIAP MBA Data Engineering · Data Integration e Pipelines · Prof. Rafael S Novo Pereira
 
-GitHub (8 CSVs do Olist, 7 usados)
+GitHub (9 CSVs do Olist, 7 usados)
    → download_and_load_bronze   (7 tabelas em OLIST_LAB.PUBLIC.BRONZE_*)
    → transform_silver           (OLIST_LAB.PUBLIC.SILVER_PEDIDOS)
    → build_gold                 (GOLD_RECEITA_ESTADO, GOLD_VENDAS_MENSAL)
@@ -23,9 +23,9 @@ from airflow.providers.standard.operators.empty import EmptyOperator
 CONN_ID = "snowflake_default"
 DB = "OLIST_LAB"
 SCHEMA = "PUBLIC"
-BASE_URL = "https://raw.githubusercontent.com/rafsp/Aula3006_MBA/main/datasets/"
+BASE_URL = "https://raw.githubusercontent.com/rafsp/MBA_Aula2708/main/datasets/"
 
-# 7 dos 8 CSVs do repositório (geolocation fica de fora: não entra em nenhuma métrica)
+# 7 dos 9 CSVs do repositório (geolocation e a tradução de categorias ficam de fora: não entram em nenhuma métrica)
 ARQUIVOS = {
     "BRONZE_ORDERS":      "olist_orders_dataset.csv",
     "BRONZE_ORDER_ITEMS": "olist_order_items_dataset.csv",

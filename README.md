@@ -2,6 +2,8 @@
 
 FIAP · MBA Data Engineering · Prof. Rafael S Novo Pereira
 
+Repositório da turma: **github.com/rafsp/MBA_Aula2708** — faça um fork para a sua conta antes de conectar ao Astro.
+
 Última aula da disciplina (16 h): **Databricks (Aula 1) → Snowflake (Aula 2) → dbt (Aula 3) → Airflow (Aula 4)**.
 Aqui o pipeline Olist roda de ponta a ponta sem ninguém apertar play: GitHub → Bronze → Silver → Gold → quality checks,
 orquestrado pelo Airflow 3.3 no Astro (Astronomer), com cada task num pod Kubernetes.
@@ -10,13 +12,14 @@ orquestrado pelo Airflow 3.3 no Astro (Astronomer), com cada task num pod Kubern
 
 | Caminho | O que é |
 |---|---|
-| `datasets/` | 8 CSVs do Olist (Brazilian E-Commerce Public Dataset, Kaggle, CC BY-NC-SA 4.0). A DAG usa 7. |
+| `datasets/` | 9 CSVs do Olist (Brazilian E-Commerce Public Dataset, Kaggle, CC BY-NC-SA 4.0). A DAG usa 7. |
 | `dags/pipeline_olist.py` | **DAG principal do lab** — `pipeline_olist_completo`. 6 tasks, Python puro, schema `OLIST_LAB.PUBLIC`. |
 | `dags/demo_backfill.py` | Demo da aula: `schedule="@daily"` + task que lê `logical_date`. Backfill pela UI do Airflow 3. |
 | `dags/pipeline_olist_dbt.py` | **Desafio Ouro** — `pipeline_olist_dbt`: o projeto dbt da Aula 3 orquestrado via Cosmos (10 tasks, lineage na UI). Schemas `BRONZE/STAGING/SILVER/GOLD`. |
 | `dags/dbt/olist/` | Projeto dbt da Aula 3 (staging → intermediate → marts). |
 | `setup/01_snowflake_service_user.sql` | Plano B da Etapa 13: usuário de serviço com par de chaves (MFA). |
 | `Dockerfile`, `requirements.txt`, `packages.txt` | Imagem do Astro: Runtime 3.3-6 (Airflow 3.3.1) + venv do dbt + Cosmos 1.15.1. |
+| `.astro/`, `airflow_settings.yaml.example`, `tests/` | Para o plano C (Astro CLI local): `astro dev start`, Connection pré-configurada, `astro dev pytest`. |
 
 ## A DAG principal
 

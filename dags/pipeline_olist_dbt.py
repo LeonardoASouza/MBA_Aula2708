@@ -56,7 +56,7 @@ with DAG(
         from airflow.providers.snowflake.hooks.snowflake import SnowflakeHook
  
         BASE = ('https://raw.githubusercontent.com/'
-                'rafsp/Aula3006_MBA/main/datasets/')
+                'rafsp/MBA_Aula2708/main/datasets/')
         arquivos = {
             'ORDERS':      'olist_orders_dataset.csv',
             'ORDER_ITEMS': 'olist_order_items_dataset.csv',
